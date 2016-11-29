@@ -1,0 +1,68 @@
+.m-user-info {
+    
+    a {
+        text-decoration: none;
+    }
+
+    .no-repositories {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .m-user-card {
+        width: 100%;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 5px #999999;
+        background-color: #FFFFFF;
+        
+        .m-user-card-header {
+            padding: 10px;
+            border-bottom: 1px solid #acb5bf;
+            
+            a {
+                color: #999999;
+            }
+
+            .user-name {
+                margin-top: -23px;
+                margin-left: 35px;
+                margin-bottom: 0;
+            }
+        }
+
+        .m-user-card-body {
+            padding: 10px;
+
+            .user-bio {
+                display: block;
+                width: 427px;
+                float: right;
+            }
+
+            .cols {
+                display: inline-block;
+
+                .row-titles {
+                    display: inline-block;
+                    width: 83px;
+                    color: grey;
+                    margin: 4px 0;
+                }
+
+                &.col-2 {
+                    width: 49%;
+
+                    &:last-child {
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 0 10px #999999;
+        }
+    }
+}
+

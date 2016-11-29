@@ -1,0 +1,47 @@
+.m-repo-card {
+    display: inline-block;
+    width: 253px;
+    color: #3d3d3d;
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px #999999;
+    background-color: #FFFFFF;
+    
+    &.card-right {
+        margin-right: 0;
+    }
+
+    .m-repo-card-header {
+        padding: 10px;
+        color: grey;
+        border-bottom: 1px solid #999999;
+
+        p {
+            display: inline-block;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    .m-repo-card-body {
+        padding: 10px;
+
+        i {
+            width: 10px;
+            margin-right: 10px;
+        }
+
+        span {
+            display: inline-block;
+            padding: 8px 0;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 10px #999999;
+    }
+}
+

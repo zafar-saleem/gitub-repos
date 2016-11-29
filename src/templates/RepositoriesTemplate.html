@@ -1,0 +1,74 @@
+<% if (data.error) { %> 
+    <h4 class="no-repositories"><%= data.message %></h4>
+<% } else {  %>
+<div class="m-user-card">
+    <div class="m-user-card-header">
+        <a href="<%= data.profile_url %>" target="_blank">
+            <img src="<%= data.avatar %>" width="25">
+            <p class="user-name"><%= data.name.toUpperCase() %></p>
+        </a>
+    </div>
+    <div class="m-user-card-body">
+        <div class="cols col-2">
+            <% if (data.email) { %>
+                <span class="row-titles">Email</span>
+                <span class="row-item user-email"><%= data.email %></span>
+                <br>
+            <% } %>
+            <% if (data.joined) { %>
+                <span class="row-titles">Joined</span>
+                <span class="row-item user-email"><%= data.joined.split('T')[0] %></span>
+                <br>
+            <% } %>
+            <% if (data.followers) { %>
+                <span class="row-titles">Followers</span>
+                <span class="row-item user-email"><%= data.followers %></span>
+                <br>
+            <% } %>
+            <% if (data.following) { %>
+                <span class="row-titles">Following</span>
+                <span class="row-item user-email"><%= data.following %></span>
+                <br>
+            <% } %>
+        </div>
+        <div class="cols col-2">
+            <% if (data.location) { %>
+                <span class="row-titles">Location</span>
+                <span class="row-item user-email"><%= data.location %></span>
+                <br>
+            <% } %>
+            <% if (data.hireable) { %>
+                <span class="row-titles">Availability</span>
+                <span class="row-item user-email"><% if (data.hireable) { %> I am available to hire <% } else { %> I am not available for hire <% } %></span>
+                <br>
+            <% } %>
+            <% if (data.bio) { %>
+                <span class="row-titles">Bio</span>
+                <span class="row-item user-bio"><%= data.bio %></span>
+                <br>
+            <% } %>
+        </div>
+    </div>
+</div>
+<h4><%= data.name %>'s Public Repositories</h4>
+<% _.each(data.repos, function(repo, i) { %>
+    <% if (!repo.private) { %>
+        <a href="<%= repo.html_url %>" target="_blank">
+        <div class="m-repo-card <% if (i % 4 == 3) { %> card-right <% } %>">
+            <div class="m-repo-card-header">
+                <i class="fa fa-database" aria-hidden="true"></i>
+                <p><%= repo.name.toUpperCase().substring(0, 17) %><% if (repo.name.length > 17) { %>...<% } %></p>
+            </div>
+            <div class="m-repo-card-body">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span><%= repo.watchers %> Star<% if (repo.watchers > 1) { %>s <% } %></span>
+                <p><% if (repo.fork) { %> 
+                    <i class="fa fa-code-fork" aria-hidden="true"></i> Forked
+                <% } else { %> 
+                <i class="fa fa-gg" aria-hidden="true"></i> Owned
+                <% } %></p>
+            </div>
+        </div>
+    <% } %>
+<% }) %>
+<% } %>
